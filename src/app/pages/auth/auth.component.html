@@ -1,0 +1,94 @@
+<div class="auth-page">
+    <div class="auth-page__content-block">
+      <div class="auth-page__content-wrapper">
+        <mat-tab-group class="auth-page__group">
+          <mat-tab label="Iniciar Sesion">
+            <h4 class="auth-page__group-title">¡Bienvenid@!</h4>
+  
+            <div class="auth-page__border-wrapper">
+              <div class="auth-page__border-line"></div>
+              
+              <div class="auth-page__border-line"></div>
+            </div>
+  
+            <form class="form" [formGroup]="formLogin" (ngSubmit)="login()">
+                <mat-form-field class="form__input">
+                  <input matInput placeholder="Correo" type="email" formControlName="email">
+                </mat-form-field>
+              
+                <mat-form-field class="form__input">
+                  <input matInput placeholder="Contraseña" type="password" formControlName="password">
+                </mat-form-field>
+                
+                <div class="form__recaptcha">
+                  <ngx-recaptcha2 #captchaElem
+                    [siteKey]="siteKey"
+                    (expire)="handleExpire()"
+                    (success)="handleSuccess($event)"
+                    formControlName="recaptcha">
+                  </ngx-recaptcha2>
+                </div>
+
+                <div class="form-actions">
+                  <button class="form-actions__login" mat-raised-button color="primary" type="submit">Iniciar Sesion</button>
+                </div>
+                <div class="form-actions">
+                  <button class="form-actions__forget" mat-button>Recuperar Contraseña</button>
+                </div>
+            </form>
+  
+          </mat-tab>
+
+          <mat-tab label="Registrar">
+            
+            <p class="auth-page__group-sub-title1">¿Eres Estudiante?</p>
+            <p class="auth-page__group-sub-title2">Crea tu cuenta aquí</p>
+  
+            <form class="form" [formGroup]="formSignIn" (ngSubmit)="sign()">
+              <mat-form-field class="form__input">
+                <mat-label class="form__labelInput">Nombres</mat-label>
+                <input matInput formControlName="mainName">
+              </mat-form-field>
+
+              <mat-form-field class="form__input">
+                <input matInput placeholder="Apellidos" formControlName="surName">
+              </mat-form-field>
+            
+              <mat-form-field class="form__input">
+                <input matInput placeholder="Apodo" formControlName="nick">
+              </mat-form-field>
+
+              <mat-form-field class="form__input">
+                <input matInput placeholder="Email" type="email" formControlName="email">
+              </mat-form-field>
+            
+              <mat-form-field class="form__input">
+                <input matInput placeholder="Contraseña" type="password" formControlName="password">
+              </mat-form-field>
+
+              <mat-form-field class="form__input">
+                <mat-label>Carrera</mat-label>
+                <mat-select formControlName="career">
+                  <mat-option *ngFor="let career of careers" [value]='career'>
+                    {{career}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            
+              <div class="form-actions2">
+                <button class="form-actions2__create" mat-raised-button color="primary" type="submit">Registrarse</button>
+              </div>
+            </form>
+          </mat-tab>
+        </mat-tab-group>
+        
+        <p class="auth-page__footer-title">© 2021 RatonesOnTour, LLC. All rights reserved.</p>
+      </div>
+    </div>
+    <div class="auth-page__logo">
+      <div class="auth-page__logo-wrapper">
+        <img class="auth-page__logo-img" src="https://i.ibb.co/3rbH50z/Me-Anoto-5.png" alt="logo">
+      </div>
+    </div>
+  </div>
+  

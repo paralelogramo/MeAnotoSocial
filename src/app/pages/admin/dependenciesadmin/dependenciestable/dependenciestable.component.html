@@ -1,0 +1,45 @@
+<mat-card class="employee-table-wrapper">
+    <mat-card-title class="employee-table-wrapper__header">
+      <button class="employee-table-wrapper__button" mat-mini-fab (click)="addDependencie()">
+        <mat-icon class="employee-table-wrapper__icon">edit</mat-icon>
+      </button>
+    </mat-card-title>
+    <mat-card-content class="employee-table__content" >
+      <table class="employee-table__table" mat-table [dataSource]="dataSource">
+    
+          <ng-container matColumnDef="id" >
+            <th class="employee-table__table-header" mat-header-cell *matHeaderCellDef > ID </th>
+            <td class="employee-table__table-body" mat-cell *matCellDef="let dependencie"> {{dependencie.id}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="name" >
+            <th class="employee-table__table-header" mat-header-cell *matHeaderCellDef > Nombre </th>
+            <td class="employee-table__table-body" mat-cell *matCellDef="let dependencie"> {{dependencie.name}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="capacity" >
+            <th class="employee-table__table-header" mat-header-cell *matHeaderCellDef > Aforo </th>
+            <td class="employee-table__table-body" mat-cell *matCellDef="let dependencie"> {{dependencie.capacity}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="location" >
+            <th class="employee-table__table-header" mat-header-cell *matHeaderCellDef > Ubicación </th>
+            <td class="employee-table__table-body" mat-cell *matCellDef="let dependencie"> {{dependencie.location}} </td>
+          </ng-container>
+    
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+          </tr>
+        </table>
+      </mat-card-content>
+      <div class="pagination">
+          <mat-paginator
+          [length]="allDependencies.length"
+          [pageSize]="page_size"
+          [pageSizeOptions]="page_size_options"
+          (page)="onPageChange($event)"
+          aria-label="Select page"
+      ></mat-paginator>
+      </div>
+  </mat-card>
+    

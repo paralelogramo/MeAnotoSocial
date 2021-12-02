@@ -1,0 +1,29 @@
+export enum routes {
+
+    LOGIN = '/login',
+
+    // Routes for Admin
+    DASHBOARD = '/admin/dashboard',
+    ACCOUNTS = '/admin/cuentas',
+    DEPENDENCIES ='/admin/salas',
+    MODULES = '/admin/cursos',
+    
+
+    // Routes for Professor
+    // DASHBOARDP = '/professor/dashboard',
+    // ACCOUNTSP = '/professor/cuentas',
+    // DEPENDENCIESP ='/professor/salas',
+    // MODULESP = '/professor/cursos',
+
+    // Routes for Student
+    DASHBOARDS = '/estudiante/dashboard',
+    MODULESS = '/estudiante/cursos',
+    EVENTSS ='/estudiante/eventos',
+
+    // Routes for Operative
+    // DASHBOARDP = '/professor/dashboard',
+    // ACCOUNTSP = '/professor/cuentas',
+    // DEPENDENCIESP ='/professor/salas',
+    // MODULESP = '/professor/cursos',
+}
+  
