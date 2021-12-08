@@ -13,7 +13,8 @@ export class CrudService {
 
   constructor( private clienteHttp: HttpClient ) {}
 
-  register(user: User): Observable<any>{    
+  register(user: User): Observable<any>{
+    console.log(user)  
     return this.clienteHttp.post(`${this.baseUrl}/registerUser.php`,user, {responseType: 'text'});
   }
 

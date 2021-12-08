@@ -1,1 +1,18 @@
-<p>modulecard works!</p>
+<div class="module-box" >
+    <mat-card class="module-box__mat-card">
+        <mat-card-subtitle>{{module.career}}</mat-card-subtitle>
+        <mat-card-title>{{module.name}}</mat-card-title>
+        <mat-card-content>
+            <p>Sección: {{module.section}}</p>
+            <p>Profesor: {{module.professor}}</p>
+        </mat-card-content>
+        <mat-divider inset></mat-divider>
+        <mat-card-actions>
+            <button mat-raised-button *ngIf="module.news!=0"
+            matBadge={{module.news}} matBadgePosition="after" matBadgeColor="accent">
+            Ver Eventos</button>
+            <button *ngIf="module.news==0" mat-raised-button>
+            Ver Eventos</button>
+        </mat-card-actions>
+    </mat-card>    
+</div>

@@ -1,4 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+
+interface moduleToShow{
+  name: string;
+  section: string;
+  career: string;
+  professor: string;
+  news: number;
+}
 
 @Component({
   selector: 'app-modulecard',
@@ -6,8 +14,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./modulecard.component.scss']
 })
 export class ModulecardComponent implements OnInit {
+  @Input() module: moduleToShow;
+  
 
-  constructor() { }
+  constructor() {
+    
+  }
 
   ngOnInit(): void {
   }

@@ -4,7 +4,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Dependencie } from 'src/app/models/Dependencie';
 import { CrudService } from 'src/app/services/crud.service';
 
-const SIZE: number = 10;
+const SIZE: number = 8;
 
 @Component({
   selector: 'app-dependenciestable',

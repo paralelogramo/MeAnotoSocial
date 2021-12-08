@@ -57,6 +57,7 @@ export class AuthComponent implements OnInit {
     'Terapia Ocupacional'
   ]
 
+
   siteKey: string = "6Lee3HEdAAAAAIHjoQ8kjTr4Gdm9an25eFXbicYi";
 
   public routers: typeof routes = routes;
@@ -129,9 +130,41 @@ export class AuthComponent implements OnInit {
     }
   }
 
+  public sign(){
+    if (this.formSignIn.value.mainName == "" ||
+        this.formSignIn.value.surName == "" ||
+        this.formSignIn.value.nick == "" ||
+        this.formSignIn.value.email == "" ||
+        this.formSignIn.value.password == "" ||
+        this.formSignIn.value.career == ""
+        ) {
+      this.showError2()
+    }
+    else{
+      this.userModel.mainName = this.formSignIn.value.mainName;
+      this.userModel.surName = this.formSignIn.value.surName;
+      this.userModel.nick = this.formSignIn.value.nick;
+      this.userModel.email = this.formSignIn.value.email;
+      this.userModel.pass = this.formSignIn.value.password;
+      this.userModel.career = this.formSignIn.value.career;
+      this.userModel.type = 3;
+      this.crudService.register(this.userModel).subscribe(data => {
+        this.showSuccess2();
+        this.formSignIn.reset()
+      })
+    }
+  }
+
+
   private showSuccess(nick: String | undefined) {
     this.toastr.success(
       'Bienvenid@ '+nick+'', '¡Hola Nuevamente!'
+    );
+  }
+
+  private showSuccess2() {
+    this.toastr.success(
+      'Ahora puedes iniciar sesion!', 'Usuario Creado Correctamente'
     );
   }
 
@@ -153,9 +186,5 @@ export class AuthComponent implements OnInit {
 
   public handleSuccess(event: string){
     this.recaptchaAproved = event;
-  }
-
-  public sign(){
-
   }
 }

@@ -7,7 +7,7 @@ import { CrudService } from 'src/app/services/crud.service';
 import { AdduserdialogComponent } from '../adduserdialog/adduserdialog.component';
 import { ShowuserdialogComponent } from '../showuserdialog/showuserdialog.component';
 
-const SIZE: number = 10;
+const SIZE: number = 8;
 
 @Component({
   selector: 'app-userstable',

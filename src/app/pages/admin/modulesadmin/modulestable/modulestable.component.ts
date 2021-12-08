@@ -10,7 +10,7 @@ class ModuleToShow {
   professor: string|undefined;
 }
 
-const SIZE: number = 10;
+const SIZE: number = 8;
 
 @Component({
   selector: 'app-modulestable',

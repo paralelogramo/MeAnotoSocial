@@ -1,0 +1,8 @@
+@import "src/app/styles/colors";
+@import "src/app/styles/variables";
+@import "src/app/styles/font";
+
+.module-box__mat-card{
+    background-color: $blue-white;
+    border: 1px $light-blue solid;
+}
