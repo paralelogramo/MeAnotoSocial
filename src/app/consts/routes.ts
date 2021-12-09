@@ -18,7 +18,8 @@ export enum routes {
     // Routes for Student
     DASHBOARDS = '/estudiante/dashboard',
     MODULESS = '/estudiante/cursos',
-    EVENTSS ='/estudiante/eventos',
+    MODULESEVENTSS = '/estudiante/cursos/eventos',
+    EVENTSS ='/estudiante/miseventos',
 
     // Routes for Operative
     // DASHBOARDP = '/professor/dashboard',

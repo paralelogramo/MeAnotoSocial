@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { DashboardadminComponent } from './pages/admin/dashboardadmin/dashboardadmin.component';
-import { AuthGuard } from './pages/auth/auth.guard';
+import { AuthGuard, EventGuard } from './pages/auth/auth.guard';
 import { DashboardstudentComponent } from './pages/student/dashboardstudent/dashboardstudent.component';
 
 const routes: Routes = [
@@ -46,7 +46,13 @@ const routes: Routes = [
     loadChildren: () => import('./pages/student/modulesstudent/modulesstudent.module').then(m => m.ModulesstudentModule)
   },
   {
-    path: 'estudiante/eventos',
+    path: 'estudiante/cursos/eventos',
+    pathMatch: 'full',
+    canActivate: [AuthGuard, EventGuard],
+    loadChildren: () => import('./pages/student/moduleseventsstudent/moduleseventsstudent.module').then(m => m.ModuleseventsstudentModule)
+  },
+  {
+    path: 'estudiante/miseventos',
     pathMatch: 'full',
     canActivate: [AuthGuard],
     loadChildren: () => import('./pages/student/eventsstudent/eventsstudent.module').then(m => m.EventsstudentModule)

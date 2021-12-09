@@ -20,3 +20,21 @@ export class AuthGuard implements CanActivate {
     }
   }
 }
+
+@Injectable({
+  providedIn: 'root'
+})
+export class EventGuard implements CanActivate {
+
+  constructor(private router: Router){
+  }
+
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): any {
+    const token = sessionStorage.getItem('idModule');
+    if (token) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+}

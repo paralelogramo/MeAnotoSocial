@@ -53,4 +53,12 @@ export class CrudService {
   getIdNameProf(career: String){
     return this.clienteHttp.get<any>(`${this.baseUrl}/getIdNameProf.php?career=${career}`)
   }
+
+  getModulesUser(id: string | null): Observable<any>{
+    return this.clienteHttp.post(`${this.baseUrl}/getModulesUser.php`, id)
+  }
+
+  getEventsModule(id: string | null): Observable<any>{
+    return this.clienteHttp.post(`${this.baseUrl}/getEventsModule.php`, id)
+  }
 }

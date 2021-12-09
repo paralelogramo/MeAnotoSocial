@@ -1,6 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { routes } from 'src/app/consts/routes';
 
 interface moduleToShow{
+  id: number
   name: string;
   section: string;
   career: string;
@@ -15,13 +18,23 @@ interface moduleToShow{
 })
 export class ModulecardComponent implements OnInit {
   @Input() module: moduleToShow;
-  
+  public routers: typeof routes = routes;
 
-  constructor() {
-    
+  constructor(
+    private router: Router) {
   }
 
   ngOnInit(): void {
+  }
+
+  showEvents(): void{
+    if(this.module.news == 0){
+      // Snackbar que no tiene eventos
+    }
+    else{
+      sessionStorage.setItem("idModule",this.module.id+"")
+      this.router.navigate([this.routers.MODULESEVENTSS]);
+    }
   }
 
 }

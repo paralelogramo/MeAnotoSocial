@@ -9,9 +9,9 @@
         <mat-divider inset></mat-divider>
         <mat-card-actions>
             <button mat-raised-button *ngIf="module.news!=0"
-            matBadge={{module.news}} matBadgePosition="after" matBadgeColor="accent">
+            matBadge={{module.news}} matBadgePosition="after" matBadgeColor="accent" (click)="showEvents()">
             Ver Eventos</button>
-            <button *ngIf="module.news==0" mat-raised-button>
+            <button *ngIf="module.news==0" mat-raised-button (click)="showEvents()">
             Ver Eventos</button>
         </mat-card-actions>
     </mat-card>    
