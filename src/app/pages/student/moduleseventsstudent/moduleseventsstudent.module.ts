@@ -7,10 +7,15 @@ import { RecurrenceEditorModule, ScheduleModule, DayService, WeekService, WorkWe
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { MatDialogModule } from '@angular/material/dialog';
+import { AddeventdialogComponent } from './addeventdialog/addeventdialog.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+
 
 @NgModule({
   declarations: [
-    ModuleseventsstudentComponent
+    ModuleseventsstudentComponent,
+    AddeventdialogComponent,
   ],
   imports: [
     CommonModule,
@@ -20,8 +25,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     RecurrenceEditorModule,
     MatButtonModule,
     MatIconModule,
-    FontAwesomeModule
-
+    FontAwesomeModule,
+    MatDialogModule,
+    MatSnackBarModule
   ],
   providers: [
     DayService,

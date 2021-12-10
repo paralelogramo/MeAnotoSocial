@@ -1,3 +1,15 @@
 <app-layout>
-    eventos
+    <mat-tab-group class="tabGroup">
+        <mat-tab label="Próximos Eventos">
+            <div class="events_container" *ngFor="let event of events">
+                <app-eventcard class="card" [event]="event">
+                </app-eventcard>
+            </div>
+        </mat-tab>
+        <mat-tab label="Eventos Pasados">
+            <!-- Aqui va el content -->
+        </mat-tab>
+    </mat-tab-group>
+
+    
 </app-layout>

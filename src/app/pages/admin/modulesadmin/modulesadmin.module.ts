@@ -11,8 +11,13 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatTableModule } from '@angular/material/table';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatOptionModule } from '@angular/material/core';
+import { MatSelectModule } from '@angular/material/select';
 
-
+import {MatDialogModule} from '@angular/material/dialog';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 @NgModule({
   declarations: [
@@ -30,6 +35,13 @@ import { MatButtonModule } from '@angular/material/button';
     MatTableModule,
     MatMenuModule,
     MatButtonModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    FormsModule,
+    MatOptionModule,
+    MatSelectModule,
+    MatDialogModule,
+    MatGridListModule
   ]
 })
 export class ModulesadminModule { }

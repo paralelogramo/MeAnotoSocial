@@ -1,1 +1,49 @@
-<p>eventcard works!</p>
+<div class="container">
+    <mat-grid-list cols="90" rowHeight="1:4" class="grid">
+
+        <mat-grid-tile [colspan]="22">
+            <div class="module">
+                <div class="module__text">
+                    <b>{{event.module}}</b>
+                </div>
+            </div>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="10">
+            <div class="place">
+                <div class="place__text">
+                    <b>{{event.place}}</b>
+                </div>
+            </div>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="12" word-wrap>
+            <div class="startTime" >
+                <div class="startTime__text">
+                    <b>{{event.startTime}}</b>
+                </div>
+            </div>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="12" word-wrap>
+            <div class="endTime">
+                <div class="endTime__text">
+                    <b>
+                        {{event.endTime}}
+                    </b>
+                </div>
+            </div>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="25">
+            <div class="description" word-wrap>
+                <div class="description__text">
+                    <b>
+                        {{event.description}}
+                    </b>
+                </div>
+            </div>
+        </mat-grid-tile>
+    </mat-grid-list>
+    
+    
+    
+    
+    
+</div>

@@ -1,1 +1,20 @@
-<p>adddependenciedialog works!</p>
+<div mat-dialog-content class="containerForm">
+    <form class="form" [formGroup]="formSignIn" (ngSubmit)="registerDependencie()">
+      <mat-form-field class="form__input">
+          <mat-label class="form__labelInput">Nombre</mat-label>
+          <input matInput formControlName="name">
+      </mat-form-field>
+  
+      <mat-form-field class="form__input">
+          <input matInput placeholder="Aforo" formControlName="capacity">
+      </mat-form-field>
+        
+      <mat-form-field class="form__input">
+        <input matInput placeholder="ubicación" formControlName="location">
+    </mat-form-field>
+    
+      <div class="form-actions2">
+        <button class="form-actions2__create" mat-raised-button color="primary" type="submit">Crear Sala</button>
+      </div>
+    </form>
+</div>

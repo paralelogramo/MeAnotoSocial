@@ -1,1 +1,51 @@
-<p>addmoduledialog works!</p>
+<mat-grid-list class="gridContainer" cols="20" rowHeight="300px">
+  <mat-grid-tile class="formTile" [colspan]="9">
+    <div mat-dialog-content class="containerForm">
+      <form class="form" [formGroup]="formSignIn" (ngSubmit)="registerModule()">
+        <mat-form-field class="form__input">
+            <mat-label class="form__labelInput">Nombre</mat-label>
+            <input matInput formControlName="name">
+        </mat-form-field>
+    
+        <mat-form-field class="form__input">
+            <input matInput placeholder="Seccion" formControlName="section">
+        </mat-form-field>
+          
+        <mat-form-field class="form__input">
+          <mat-label>Carrera</mat-label>
+          <mat-select formControlName="career" (selectionChange)="selectCareer($event)">
+            <mat-option *ngFor="let career of careers" [value]='career'>
+              {{career}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+    
+        <mat-form-field class="form__input">
+            <input matInput placeholder="Profesor" formControlName="professor" [readonly]="true">
+        </mat-form-field>
+      
+        <div class="form-actions2">
+          <button class="form-actions2__create" mat-raised-button color="primary" type="submit">Crear Modulo</button>
+        </div>
+      </form>
+  </div>
+  </mat-grid-tile>
+  <mat-grid-tile class="listTile" [colspan]="11">
+    <!-- <div class="alertDiv">
+      <b>Primero debes seleccionar una carrera</b>
+    </div> -->
+    <div>
+      <table class="employee-table__table" mat-table [dataSource]="users">
+  
+        <ng-container matColumnDef="name" >
+          <th class="employee-table__table-header" mat-header-cell *matHeaderCellDef > Nombre </th>
+          <td class="employee-table__table-body" mat-cell *matCellDef="let user"> {{user.name}} </td>
+        </ng-container>
+  
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </div>
+  </mat-grid-tile>
+
+</mat-grid-list>

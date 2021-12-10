@@ -10,13 +10,18 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatTableModule } from '@angular/material/table' 
 import { MatBadgeModule } from '@angular/material/badge';
 import { AdduserdialogComponent } from './adduserdialog/adduserdialog.component';
-import { ShowuserdialogComponent } from './showuserdialog/showuserdialog.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatOptionModule } from '@angular/material/core';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
     AccountsadminComponent,
     AdduserdialogComponent,
-    ShowuserdialogComponent,
   ],
   imports: [
     CommonModule,
@@ -27,6 +32,14 @@ import { ShowuserdialogComponent } from './showuserdialog/showuserdialog.compone
     MatCardModule,
     MatIconModule,
     MatTableModule,
+    MatGridListModule,
+    MatButtonModule,
+    FontAwesomeModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    FormsModule,
+    MatOptionModule,
+    MatSelectModule
   ],
   exports:[
   ]

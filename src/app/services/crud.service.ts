@@ -61,4 +61,12 @@ export class CrudService {
   getEventsModule(id: string | null): Observable<any>{
     return this.clienteHttp.post(`${this.baseUrl}/getEventsModule.php`, id)
   }
+
+  inscriptionEventStudent(ids: any){
+    return this.clienteHttp.post(`${this.baseUrl}/inscriptionEventStudent.php`, ids)
+  }
+
+  getEventsUser(id: string): Observable<any>{
+    return this.clienteHttp.post(`${this.baseUrl}/getEventsUser.php`, id)
+  }
 }

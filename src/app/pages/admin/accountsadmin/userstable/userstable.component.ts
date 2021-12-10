@@ -5,7 +5,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Router, ActivatedRoute } from '@angular/router';
 import { CrudService } from 'src/app/services/crud.service';
 import { AdduserdialogComponent } from '../adduserdialog/adduserdialog.component';
-import { ShowuserdialogComponent } from '../showuserdialog/showuserdialog.component';
+import { FormControl, FormGroup } from '@angular/forms';
 
 const SIZE: number = 8;
 
@@ -26,13 +26,34 @@ export class UsersTableComponent implements OnInit {
   users: User[] = [];
   allUsers: User[] = [];
 
+  selectedUser: User = new User(undefined,undefined,undefined,undefined,undefined,undefined,undefined,undefined,undefined,undefined);
+
+  hoverPopUp: boolean;
+
+  public options: FormGroup;
+  public showMainName: String = '';
+  public showSurName: String = '';
+  public showNick: String = '';
+  public showEmail: String = '';
+  public showType: String = '';
+  public showCareer: String = '';
+
+  public disabledCareer: boolean;
+
   constructor(
-    private router: Router,
-    private route: ActivatedRoute,
     private crudService: CrudService,
     public dialog: MatDialog
   ) {
     this.getAllUsers();
+    this.hoverPopUp = false;
+
+    this.options = new FormGroup({
+      nameControl : new FormControl(this.showMainName+" "+this.showSurName),
+      nickControl : new FormControl(this.showNick),
+      emailControl : new FormControl(this.showEmail),
+      typeControl : new FormControl(this.showType),
+      careerControl : new FormControl(this.showCareer),
+    })
   }
 
   ngOnInit(): void {
@@ -50,16 +71,56 @@ export class UsersTableComponent implements OnInit {
   }
 
   addUser(){
-    const dialog = this.dialog.open(AdduserdialogComponent)
+    const dialog = this.dialog.open(AdduserdialogComponent, {
+      width: '350px'
+    })
     dialog.afterClosed().subscribe(res => {
       this.getAllUsers();
     })
   }
 
-  showUser(){
-    const dialog = this.dialog.open(ShowuserdialogComponent)
-    dialog.afterClosed().subscribe(res => {
-      this.getAllUsers();
+  
+
+  handleMouseOver(row: User): void{
+    let typeString = "";
+    let career = "";
+    if(row.type == 0){
+      typeString = "Administrador"
+      career = "Sin Carrera"
+      this.options.controls['careerControl'].disable()
+    }
+    if(row.type == 1){
+      typeString = "Profesor"
+      career = row.career!
+      this.options.controls['careerControl'].enable()
+    }
+    if(row.type == 2){
+      typeString = "Operativo"
+      career = "Sin Carrera"
+      this.options.controls['careerControl'].disable()
+    }
+    if(row.type == 3){
+      typeString = "Estudiante"
+      career = row.career!
+      this.options.controls['careerControl'].enable()
+    }
+    this.options.setValue({
+      nameControl: row.mainName+" "+row.surName,
+      nickControl: row.nick,
+      emailControl: row.email,
+      typeControl: typeString,
+      careerControl: career,
     })
+  }
+
+  handleMouseLeave(row: any): void{
+  }
+
+  enter(): void{
+    this.hoverPopUp = true;
+  }
+
+  enternt(): void{
+    this.hoverPopUp = false;
   }
 }

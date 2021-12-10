@@ -1,5 +1,6 @@
 <app-layout>
-    <ejs-schedule
+    <div class="containerSchedule">
+        <ejs-schedule
         #scheduleObj
         [eventSettings]='eventSettings'
         [timeScale]="timeScale"
@@ -8,6 +9,8 @@
         height='100%'
         [readonly] = "isReadOnly"
         (popupOpen)="onPopupOpen($event)"
+        (eventClick)="onClick($event)"
+        (eventRendered)="OnEventRendered($event)"
     >
 
         <ng-template #quickInfoTemplatesHeader let-data> 
@@ -16,7 +19,7 @@
                     <div class="e-header-icon-wrapper"> 
                         <div class="headerContainer">
                             <div class="buttonDiv">
-                                <button mat-fab color="warn" class="but" (click)="registerEvent($event)">
+                                <button mat-fab color="warn" class="but" (click)="openDialog($event)">
                                     <fa-icon [icon]="faPencilAlt" ></fa-icon>
                                   </button>
                             </div>
@@ -31,4 +34,6 @@
             </div> 
         </ng-template> 
     </ejs-schedule>
+    </div>
+    
 </app-layout>

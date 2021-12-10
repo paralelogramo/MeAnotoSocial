@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { PageEvent } from '@angular/material/paginator';
 import { CrudService } from 'src/app/services/crud.service';
+import { AddmoduledialogComponent } from '../addmoduledialog/addmoduledialog.component';
 
 class ModuleToShow {
   id: number|undefined;
@@ -29,6 +31,7 @@ export class ModulestableComponent implements OnInit {
   
   constructor(
     private crudService: CrudService,
+    public dialog: MatDialog
   ) {
     this.initAllModules()
   }
@@ -45,6 +48,15 @@ export class ModulestableComponent implements OnInit {
 
   onPageChange(event: PageEvent): void{    
     this.modulesTable = this.allModules.slice(event.pageIndex*event.pageSize,(event.pageIndex+1)*event.pageSize)
+  }
+
+  addModule(): void{
+    const dialog = this.dialog.open(AddmoduledialogComponent, {
+      width: "770px"
+    })
+    dialog.afterClosed().subscribe(res => {
+      
+    })
   }
 
 }

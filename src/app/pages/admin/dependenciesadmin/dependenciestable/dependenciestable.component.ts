@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { PageEvent } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Dependencie } from 'src/app/models/Dependencie';
 import { CrudService } from 'src/app/services/crud.service';
+import { AdddependenciedialogComponent } from '../adddependenciedialog/adddependenciedialog.component';
 
 const SIZE: number = 8;
 
@@ -25,6 +27,7 @@ export class DependenciestableComponent implements OnInit {
 
   constructor(
     private crudService: CrudService,
+    public dialog: MatDialog
   ) {
     this.getAllDependences()
   }
@@ -44,6 +47,11 @@ export class DependenciestableComponent implements OnInit {
   }
 
   addDependencie(){
-
+    const dialog = this.dialog.open(AdddependenciedialogComponent, {
+      width: "300px"
+    })
+    dialog.afterClosed().subscribe(res => {
+      this.getAllDependences()
+    })
   }
 }

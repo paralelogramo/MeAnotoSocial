@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { EventsstudentComponent } from './eventsstudent.component';
-import { EventstudentRoutingModule } from './dashboardstudent-routing.module';
+import { EventstudentRoutingModule } from './eventsstudent-routing.module';
 import { SharedModule } from '../shared/shared.module';
 import { EventcardComponent } from './eventcard/eventcard.component';
-
-
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 @NgModule({
   declarations: [
@@ -15,7 +15,9 @@ import { EventcardComponent } from './eventcard/eventcard.component';
   imports: [
     CommonModule,
     EventstudentRoutingModule,
-    SharedModule
+    SharedModule,
+    MatTabsModule,
+    MatGridListModule
   ]
 })
 export class EventsstudentModule { }

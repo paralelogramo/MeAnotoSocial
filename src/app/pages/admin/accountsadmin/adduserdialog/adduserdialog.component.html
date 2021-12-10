@@ -1,1 +1,46 @@
-<p>adduserdialog works!</p>
+<div class="containerForm">
+  <form class="form" [formGroup]="formSignIn" (ngSubmit)="sign()">
+    <mat-form-field class="form__input">
+        <mat-label class="form__labelInput">Nombres</mat-label>
+        <input matInput formControlName="mainName">
+    </mat-form-field>
+
+    <mat-form-field class="form__input">
+        <input matInput placeholder="Apellidos" formControlName="surName">
+    </mat-form-field>
+      
+    <mat-form-field class="form__input">
+        <input matInput placeholder="Apodo" formControlName="nick">
+    </mat-form-field>
+
+    <mat-form-field class="form__input">
+        <input matInput placeholder="Email" type="email" formControlName="email">
+    </mat-form-field>
+  
+    <mat-form-field class="form__input">
+        <input matInput placeholder="Contraseña" type="password" formControlName="password">
+    </mat-form-field>
+
+    <mat-form-field class="form__input">
+        <mat-label>Tipo de Cuenta</mat-label>
+        <mat-select formControlName="type">
+          <mat-option *ngFor="let t of types" [value]='t'>
+            {{t}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    
+    <mat-form-field class="form__input">
+      <mat-label>Carrera</mat-label>
+      <mat-select formControlName="career">
+        <mat-option *ngFor="let career of careers" [value]='career'>
+          {{career}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  
+    <div class="form-actions2">
+      <button class="form-actions2__create" mat-raised-button color="primary" type="submit">Crear Cuenta</button>
+    </div>
+  </form>
+</div>

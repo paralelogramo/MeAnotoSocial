@@ -1,10 +1,41 @@
 <mat-card class="employee-table-wrapper">
   <mat-card-title class="employee-table-wrapper__header">
-    <button class="employee-table-wrapper__button" mat-mini-fab (click)="addUser()">
+    <button class="employee-table-wrapper__button" mat-mini-fab (click)="addUser()" (mouseenter)="enternt()" (mouseleave)="enter()">
       <mat-icon class="employee-table-wrapper__icon">edit</mat-icon>
     </button>
   </mat-card-title>
-  <mat-card-content class="employee-table__content" >
+  <mat-card-content class="employee-table__content">
+<!--   -->
+
+  <div class="showForm" [ngClass]="hoverPopUp ? 'fade-in' : 'fade-out'">
+    <form [formGroup]="options">
+      <mat-form-field appearance="fill" class="field top">
+        <mat-label>Nombre Completo</mat-label>
+        <input matInput [readonly]="true" formControlName="nameControl">
+      </mat-form-field>
+    
+      <mat-form-field appearance="fill" class="field">
+        <mat-label>Nick</mat-label>
+        <input matInput [readonly]="true" formControlName="nickControl">
+      </mat-form-field>
+    
+      <mat-form-field appearance="fill" class="field">
+        <mat-label>Correo</mat-label>
+        <input matInput [readonly]="true" formControlName="emailControl">
+      </mat-form-field>
+    
+      <mat-form-field appearance="fill" class="field">
+        <mat-label>Tipo de Cuenta</mat-label>
+        <input matInput [readonly]="true" formControlName="typeControl">
+      </mat-form-field>
+    
+      <mat-form-field appearance="fill" class="field">
+        <mat-label>Carrera</mat-label>
+        <input matInput [readonly]="true" formControlName="careerControl">
+      </mat-form-field>
+    </form>
+  </div>
+
     <table class="employee-table__table" mat-table [dataSource]="users">
   
         <!-- Name Column -->
@@ -32,7 +63,10 @@
         </ng-container>
   
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="showUser()">
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"
+        (mouseover)="handleMouseOver(row)" 
+        (mouseenter)="enter()"
+        (mouseleave)="enternt()">
         </tr>
       </table>
     </mat-card-content>
@@ -41,9 +75,11 @@
         [length]="allUsers.length"
         [pageSize]="page_size"
         [pageSizeOptions]="page_size_options"
-        (page)="onPageChange($event)"
+        (page)="onPageChange($event)" 
         aria-label="Select page"
     ></mat-paginator>
     </div>
 </mat-card>
+
+
   

@@ -1,4 +1,15 @@
 import { Component, OnInit } from '@angular/core';
+import { CrudService } from 'src/app/services/crud.service';
+
+interface event{
+  id: number;
+  module: string;
+  place: string;
+  startTime: Date;
+  endTime: Date;
+  description: string;
+  state: string;
+}
 
 @Component({
   selector: 'app-eventsstudent',
@@ -7,9 +18,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EventsstudentComponent implements OnInit {
 
-  constructor() { }
+  events: event[] = []
+
+  constructor(
+    private crudService: CrudService,
+  ) {
+    this.getEventsUser()
+  }
 
   ngOnInit(): void {
+  }
+
+  getEventsUser(): void{
+    this.crudService.getEventsUser(localStorage.getItem("id")!).subscribe( data => {
+      this.events = data
+    })
   }
 
 }
