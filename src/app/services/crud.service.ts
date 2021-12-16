@@ -69,4 +69,16 @@ export class CrudService {
   getEventsUser(id: string): Observable<any>{
     return this.clienteHttp.post(`${this.baseUrl}/getEventsUser.php`, id)
   }
+
+  getModulesProfessor(id: string | null): Observable<any>{
+    return this.clienteHttp.post(`${this.baseUrl}/getModulesProfessor.php`, id)
+  }
+
+  getEventsModulesProfessor(ids: any): Observable<any>{
+    return this.clienteHttp.post(`${this.baseUrl}/getEventsModulesProfessor.php`, ids)
+  }
+
+  getAllEventsProfessor(id: string): Observable<any>{
+    return this.clienteHttp.post(`${this.baseUrl}/getAllEventsProfessor.php`, id)
+  }
 }

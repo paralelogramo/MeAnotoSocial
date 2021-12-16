@@ -10,10 +10,10 @@ export enum routes {
     
 
     // Routes for Professor
-    // DASHBOARDP = '/professor/dashboard',
-    // ACCOUNTSP = '/professor/cuentas',
-    // DEPENDENCIESP ='/professor/salas',
-    // MODULESP = '/professor/cursos',
+    DASHBOARDP = '/profesor/dashboard',
+    MODULESP = '/profesor/cursos',
+    DETAILMODULESP = '/profesor/cursos/detalle',
+    EVENTSP ='/profesor/miseventos',
 
     // Routes for Student
     DASHBOARDS = '/estudiante/dashboard',

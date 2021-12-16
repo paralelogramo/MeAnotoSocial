@@ -1,0 +1,11 @@
+<app-layout>
+    <div class="matgriddiv">
+        <mat-grid-list cols="2" rowHeight="3:1">
+            <mat-grid-tile *ngFor="let module of modules; index as i" class="modules-matgridtile" [colspan]="1">
+                <div class="tile-container">
+                    <app-modulecard [module] = module></app-modulecard>
+                </div>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </div>
+</app-layout>

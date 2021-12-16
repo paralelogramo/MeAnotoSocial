@@ -1,0 +1,35 @@
+.headerContainer{
+    position:relative;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.buttonDiv{
+    width: 100%;
+    text-align: end;
+    position: absolute;
+    bottom: 37px;
+    left: 15px;
+}
+
+.subjectDiv{
+    width: 100%;
+    text-align: start;
+    margin-left: 5%;
+    margin-top: 5%;
+}
+
+h2{
+    font-weight: 570;
+    color: rgb(240, 240, 240);
+}
+
+.containerSchedule{
+    height: 100%;
+    width: 100%;
+}
+
+.e-header-icon-wrapper{
+    background-color:green
+}

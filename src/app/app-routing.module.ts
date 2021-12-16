@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { DashboardadminComponent } from './pages/admin/dashboardadmin/dashboardadmin.component';
 import { AuthGuard, EventGuard } from './pages/auth/auth.guard';
+import { DashboardprofessorComponent } from './pages/professor/dashboardprofessor/dashboardprofessor.component';
 import { DashboardstudentComponent } from './pages/student/dashboardstudent/dashboardstudent.component';
 
 const routes: Routes = [
@@ -56,6 +57,30 @@ const routes: Routes = [
     pathMatch: 'full',
     canActivate: [AuthGuard],
     loadChildren: () => import('./pages/student/eventsstudent/eventsstudent.module').then(m => m.EventsstudentModule)
+  },
+  {
+    path: 'profesor/dashboard',
+    pathMatch: 'full',
+    canActivate: [AuthGuard],
+    component: DashboardprofessorComponent
+  },
+  {
+    path: 'profesor/cursos',
+    pathMatch: 'full',
+    canActivate: [AuthGuard],
+    loadChildren: () => import('./pages/professor/modulesprofessor/modulesprofessor.module').then(m => m.ModulesprofessorModule)
+  },
+  {
+    path: 'profesor/cursos/detalle',
+    pathMatch: 'full',
+    canActivate: [AuthGuard, EventGuard],
+    loadChildren: () => import('./pages/professor/detailmoduleprofessor/detailmoduleprofessor.module').then(m => m.DetailmoduleprofessorModule)
+  },
+  {
+    path: 'profesor/miseventos',
+    pathMatch: 'full',
+    canActivate: [AuthGuard],
+    loadChildren: () => import('./pages/professor/eventsprofessor/eventsprofessor.module').then(m => m.EventsprofessorModule)
   },
   {
     path:'',

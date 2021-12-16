@@ -65,41 +65,6 @@ export class ModuleseventsstudentComponent implements OnInit, OnDestroy {
     
   }
 
-  public onPopupOpen(args: PopupOpenEventArgs): void {
-    this.selectionTarget = args.target;
-  }
-
-  OnEventRendered(args: any){
-    var categoryColor = ""
-    if(args.data.Category == "Proximamente"){
-      categoryColor = 'green'
-    }
-    else{
-      categoryColor = 'red'
-    }
-    args.element.style.backgroundColor = categoryColor
-  }
-
-  getAllEvents(): void{
-    let id = sessionStorage.getItem("idModule")
-    this.crudService.getEventsModule(id).subscribe( (data: eventDB[]) => {
-      data.forEach(event => {
-        let e: eventToShow = {
-          Id: event.Id,
-          Subject: event.Subject,
-          StartTime: new Date(event.StartTime),
-          EndTime: new Date(event.EndTime),
-          Description: "Profesor: "+event.nameProf+" "+event.lastNameProf,
-          Location: event.Place,
-          IsAllDay: false,
-          Category: event.Category,
-        }
-        this.scheduleObj.addEvent(e);
-      });
-      this.isReadOnly = true;
-    })
-  }
-
   ngOnInit(): void {
   }
 
@@ -141,4 +106,39 @@ export class ModuleseventsstudentComponent implements OnInit, OnDestroy {
       this.eventAdded = true; 
     } 
   } 
+
+  public onPopupOpen(args: PopupOpenEventArgs): void {
+    this.selectionTarget = args.target;
+  }
+
+  OnEventRendered(args: any){
+    var categoryColor = ""
+    if(args.data.Category == "Proximamente"){
+      categoryColor = 'green'
+    }
+    else{
+      categoryColor = 'red'
+    }
+    args.element.style.backgroundColor = categoryColor
+  }
+
+  getAllEvents(): void{
+    let id = sessionStorage.getItem("idModule")
+    this.crudService.getEventsModule(id).subscribe( (data: eventDB[]) => {
+      data.forEach(event => {
+        let e: eventToShow = {
+          Id: event.Id,
+          Subject: event.Subject,
+          StartTime: new Date(event.StartTime),
+          EndTime: new Date(event.EndTime),
+          Description: "Profesor: "+event.nameProf+" "+event.lastNameProf,
+          Location: event.Place,
+          IsAllDay: false,
+          Category: event.Category,
+        }
+        this.scheduleObj.addEvent(e);
+      });
+      this.isReadOnly = true;
+    })
+  }
 }

@@ -1,0 +1,18 @@
+<app-layout>
+    <div class="containerSchedule">
+        <ejs-schedule
+        #scheduleObj
+        [eventSettings]='eventSettings'
+        [timeScale]="timeScale"
+        [views]="scheduleViews"
+        width='auto'
+        height='100%'
+        [readonly] = "isReadOnly"
+        (popupOpen)="onPopupOpen($event)"
+        (eventClick)="onClick($event)"
+        (eventRendered)="OnEventRendered($event)">
+
+        </ejs-schedule>
+    </div>
+    
+</app-layout>

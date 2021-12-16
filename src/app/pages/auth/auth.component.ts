@@ -119,6 +119,7 @@ export class AuthComponent implements OnInit {
             this.router.navigate([this.routers.DASHBOARD]);
           }
           else if (data.type == 1){
+            this.router.navigate([this.routers.DASHBOARDP]);
           }
           else if (data.type == 2){
           }
